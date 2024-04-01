@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Air bnb Loop up</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='choices.css') }}">     
+    </head>
+    <body>
+        <div class="choices-test">
+            <h1>Shipwrech Look up</h1>
+            <p style="color: red">Note: This is a <strong> test project </strong>which is using a public Shipwrech dataset.</p>
+        </div>
+        <div class="choices-container">
+            <p>Welcome <strong>{{ input_name }}</strong>, please make your selection</p>
+            <form action="/retrieve_shipwrech_data" method="POST">
+                <ul>
+                    <li>
+                        <label for="wrecks-visible">Wrecks - Visible:</label>
+                        <input type="radio" id="wrecks-visible" name="shipwreck-type" value="visible" required>
+                    </li>
+                    <li>
+                        <label for="wrecks-submerged">Wrecks - Submerged, dangerous:</label>
+                        <input type="radio" id="wrecks-submerged" name="shipwreck-type" value="submerged" required>
+                    </li>
+                </ul>
+
+                <input type="submit" value="Retrieve Shipwrech Data">
+                <a href="{{ url_for('exit') }}"><button type="button" class="exit-button">Exit</button></a>
+            </form>
+        </div>
+    </body>
+</html>
